@@ -1,0 +1,44 @@
+﻿@{ 
+    ViewBag.Titlte = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>The World - @ViewBag.Title</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div id="sidebar">
+        <img src="~/img/avatar.jpg" alt="" class="headshot" />
+        <span id="username">Mar</span>
+        <ul class="menu">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <div id="wrapper">
+        <div id="main">
+            <div>
+                <button id="sidebarToggle">Toggle Menu</button>
+            </div>
+            <h1>The World</h1>
+            <p>This will be a fun website..</p>
+
+            @RenderBody()
+        </div>
+
+
+        <div id="footer">
+            &copy; 2016 The World Ltd.
+        </div>
+    </div>
+
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+</body>
+</html>
