@@ -15,9 +15,9 @@
         <img src="~/img/avatar.jpg" alt="" class="headshot" />
         <span id="username">Mar</span>
         <ul class="menu">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
+            <li><a asp-controller="App" asp-action="About">About</a></li>
+            <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
         </ul>
     </div>
 
@@ -26,8 +26,6 @@
             <div>
                 <button id="sidebarToggle">Toggle Menu</button>
             </div>
-            <h1>The World</h1>
-            <p>This will be a fun website..</p>
 
             @RenderBody()
         </div>
