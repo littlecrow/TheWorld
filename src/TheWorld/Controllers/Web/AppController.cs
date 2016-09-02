@@ -16,18 +16,22 @@ namespace TheWorld.Controllers.Web
     {
         private IMailService _mailService;
         private IConfigurationRoot _config;
-        private WorldContext _context;
+        private IWorldRepository _repository;
 
-        public AppController(IMailService mailService, IConfigurationRoot config, WorldContext context)
+        //private WorldContext _context;
+
+        public AppController(IMailService mailService, IConfigurationRoot config, IWorldRepository repository)
         {
             _mailService = mailService;
             _config = config;
-            _context = context;
+            //_context = context;
+            _repository = repository;
         }
         // GET: /<controller>/
         public IActionResult Index()
         {
-            var data = _context.Trips.ToList();
+            //var data = _context.Trips.ToList();
+            var data = _repository.GetAllTrips();
 
             return View(data);
         }
