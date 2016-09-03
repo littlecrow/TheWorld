@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using TheWorld.Models;
 using TheWorld.ViewModels;
 using AutoMapper;
+using Microsoft.Extensions.Logging;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,11 +15,13 @@ namespace TheWorld.Controllers.Api
     [Route("api/trips")]
     public class TripController : Controller
     {
+        private ILogger<TripController> _logger;
         private IWorldRepository _repository;
 
-        public TripController(IWorldRepository repository)
+        public TripController(IWorldRepository repository, ILogger<TripController> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
 
         [HttpGet("")]
@@ -35,6 +38,7 @@ namespace TheWorld.Controllers.Api
             catch (Exception ex)
             {
                 // TODO logging
+                _logger.LogError($"Failed to get all trips {ex}");
 
                 return BadRequest("Error occured");
             }
