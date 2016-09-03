@@ -33,7 +33,7 @@ namespace TheWorld.Controllers.Api
             {
                 var results = _repository.GetAllTrips();
 
-                return Ok(Mapper.Map<TripViewModel>(results));
+                return Ok(Mapper.Map<IEnumerable<TripViewModel>>(results));
             }
             catch (Exception ex)
             {
