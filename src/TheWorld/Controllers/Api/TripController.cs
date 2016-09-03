@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TheWorld.Models;
 using TheWorld.ViewModels;
+using AutoMapper;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,7 +26,18 @@ namespace TheWorld.Controllers.Api
         {
             //if (true) return BadRequest("Bad things happened");
 
-            return Ok(_repository.GetAllTrips());
+            try
+            {
+                var results = _repository.GetAllTrips();
+
+                return Ok(Mapper.Map<TripViewModel>(results));
+            }
+            catch (Exception ex)
+            {
+                // TODO logging
+
+                return BadRequest("Error occured");
+            }
         }
 
         [HttpPost("")]
@@ -34,8 +46,9 @@ namespace TheWorld.Controllers.Api
             if (ModelState.IsValid)
             {
                 // save to the database 
+                var newTrip = Mapper.Map<Trip>(theTrip);
 
-                return Created($"api/trips/{theTrip.Name}", theTrip);
+                return Created($"api/trips/{theTrip.Name}", Mapper.Map<TripViewModel>(newTrip));
             }
 
             return BadRequest(ModelState);
