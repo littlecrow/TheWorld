@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TheWorld.Models;
+using TheWorld.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -28,9 +29,16 @@ namespace TheWorld.Controllers.Api
         }
 
         [HttpPost("")]
-        public IActionResult Post([FromBody] Trip theTrip)
+        public IActionResult Post([FromBody]TripViewModel theTrip)
         {
-            return Ok(true);
+            if (ModelState.IsValid)
+            {
+                // save to the database 
+
+                return Created($"api/trips/{theTrip.Name}", theTrip);
+            }
+
+            return BadRequest(ModelState);
         }
     }
 }
