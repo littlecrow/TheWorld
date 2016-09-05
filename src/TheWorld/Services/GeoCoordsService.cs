@@ -32,7 +32,7 @@ namespace TheWorld.Services
 
             var apiKey = _config["Keys:BingKey"];
             var encodedName = WebUtility.UrlEncode(name);
-            var url = $"http://dev.virtualearth.net/REST/v1/Location?q={encodedName}&key={apiKey}";
+            var url = $"http://dev.virtualearth.net/REST/v1/Locations?query={encodedName}&key={apiKey}";
 
             var client = new HttpClient();
 
