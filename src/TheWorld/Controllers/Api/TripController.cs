@@ -7,12 +7,14 @@ using TheWorld.Models;
 using TheWorld.ViewModels;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TheWorld.Controllers.Api
 {
     [Route("api/trips")]
+    [Authorize]
     public class TripController : Controller
     {
         private ILogger<TripController> _logger;
