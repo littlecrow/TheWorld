@@ -9,6 +9,14 @@
     function tripsController() {
         /* jshint validthis:true */
         var vm = this;
-        vm.name = 'Little Crow';
+        vm.trips = [
+            {
+                name: "US Trip",
+                created: new Date()
+            },
+            {
+                name: "World Trip",
+                created: new Date()
+            }];
     }
 })();
