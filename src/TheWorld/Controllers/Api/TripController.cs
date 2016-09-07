@@ -29,11 +29,9 @@ namespace TheWorld.Controllers.Api
         [HttpGet("")]
         public IActionResult Get()
         {
-            //if (true) return BadRequest("Bad things happened");
-
             try
             {
-                var results = _repository.GetAllTrips();
+                var results = _repository.GetTripsByUsername(User.Identity.Name);
 
                 return Ok(Mapper.Map<IEnumerable<TripViewModel>>(results));
             }
@@ -53,6 +51,9 @@ namespace TheWorld.Controllers.Api
             {
                 // save to the database 
                 var newTrip = Mapper.Map<Trip>(theTrip);
+
+                newTrip.UserName = User.Identity.Name;
+
                 _repository.AddTrip(newTrip);
 
                 if(await _repository.SaveChangesAsync())
