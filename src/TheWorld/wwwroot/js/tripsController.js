@@ -25,7 +25,7 @@
                 vm.errorMessage = "Failed to load data: " + error;
             })
             .finally(function () {
-                vm.isBusy = false;
+                //vm.isBusy = false;
         });
 
         vm.addTrip = function () {
