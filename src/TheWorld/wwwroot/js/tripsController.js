@@ -1,10 +1,10 @@
 ﻿(function () {
-    'use strict';
+    "use strict";
 
     // getting the existing module
     angular
-        .module('app-trips')
-        .controller('tripsController', tripsController);
+        .module("app-trips")
+        .controller("tripsController", tripsController);
 
     function tripsController($http) {
         /* jshint validthis:true */
@@ -25,7 +25,7 @@
                 vm.errorMessage = "Failed to load data: " + error;
             })
             .finally(function () {
-                //vm.isBusy = false;
+                vm.isBusy = false;
         });
 
         vm.addTrip = function () {

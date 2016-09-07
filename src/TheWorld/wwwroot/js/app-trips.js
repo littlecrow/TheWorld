@@ -1,16 +1,19 @@
-﻿(function () {
+﻿// app-trips.js
+(function () {
     'use strict';
 
-    // creating the module
+    // Creating the Module
     angular.module('app-trips', ['simpleControls', 'ngRoute'])
-        .config(function ($routeProvider) {
+      .config(function ($routeProvider) {
 
-            $routeProvider.when("/", {
-                controller: "tripController",
-                controllerAs: "vm",
-                templateurl: "/views/tripsView.html"
-            });
+          $routeProvider.when("/", {
+              controller: "tripsController",
+              controllerAs: "vm",
+              templateUrl: "/views/tripsView.html"
+          });
 
-            $routeProvider.otherwise({ redirectTo: "/" });
-        })
+          $routeProvider.otherwise({ redirectTo: "/" });
+
+      });
+
 })();
