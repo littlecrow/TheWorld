@@ -11,6 +11,6 @@ namespace TheWorld.Models
         void AddStop(string tripName, Stop newStop);
 
         Task<bool> SaveChangesAsync();
-
+        object GetTripsByUsername(string name);
     }
 }
