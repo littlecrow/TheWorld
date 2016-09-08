@@ -9,7 +9,11 @@
     "bootstrap": "~3.3.6",
     "font-awesome": "~4.6.1",
     "bootswatch": "3.3.6",
-    "angular": "1.5.7",
-    "angular-route": "1.5.7"
+    "angular": "~1.5.7",
+    "angular-route": "~1.5.7",
+    "travelmap": "~1.0.2"
+  },
+  "resolutions": {
+    "angular": "1.5.8"
   }
 }
