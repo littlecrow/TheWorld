@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-uglify": "~2.0.0"
+  },
+  "name": "TheWorld",
+  "private": true,
+  "version": "1.0.0"
+}
